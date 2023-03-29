@@ -1,0 +1,20 @@
+{
+  "name": "band",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/image": "^0.16.3",
+    "@astrojs/tailwind": "^3.1.1",
+    "@fontsource/poppins": "^4.5.10",
+    "astro": "^2.1.8",
+    "sharp": "^0.32.0",
+    "tailwindcss": "^3.0.24"
+  }
+}
