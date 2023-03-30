@@ -93,23 +93,28 @@ const support = [
 
 <Layout title="Kessoku Band">
   <main class="container flex justify-center items-center flex-col max-w-7xl">
-    <section class="min-h-screen flex flex-col justify-center items-center">
-      <Image
-        alt="Kessoku Band Logo"
-        width={315}
-        height={282}
-        class="p-4"
-        src="Band.webp"
-      />
-      <header class="mt-4">
+    <section
+      id="maincontent"
+      class="min-h-screen flex flex-col justify-center items-center"
+    >
+      <header
+        class="fixed top-0 bg-gray-900 w-screen flex items-center justify-center z-50"
+      >
         <nav>
-          <ul class="flex">
+          <ul class="p-4 flex items-center">
             <li><a href="#members" class="mr-4">Members</a></li>
             <li><a href="#music" class="mr-4">Music</a></li>
             <li><a href="#support">Support</a></li>
           </ul>
         </nav>
       </header>
+      <Image
+        alt="Kessoku Band Logo"
+        width={315}
+        height={282}
+        class="pt-16"
+        src="Band.webp"
+      />
       <div class="text-blue-700 flex-grow flex items-center justify-center">
         <div class="flex-grow grid grid-cols-3 max-w-4xl mb-24 p-4">
           <Image
@@ -178,8 +183,8 @@ const support = [
             <Image
               loading="lazy"
               alt={member.name}
-              width={203}
-              height={498}
+              width={152}
+              height={373}
               class="hidden sm:block"
               src={member.image}
             />
@@ -189,7 +194,7 @@ const support = [
                 <p>Role: {member.role}</p>
                 <p>Seiyu: {member.seiyu}</p>
               </div>
-              <p class="h-[240px] text-sm sm:h-auto sm:text-base mt-16 p-6">
+              <p class="text-sm h-[224px] mt-16 p-6">
                 {member.description}
               </p>
             </div>
@@ -202,13 +207,16 @@ const support = [
       id="music"
       class="min-h-screen flex flex-col justify-center items-center"
     >
-      <div class="w-[36rem]">
-        <audio data-testid="main audio" preload="none" src="Guitar, Loneliness and Blue Planet.mp3"
-        ></audio>
+      <div class="w-auto sm:w-[36rem]">
+        <audio
+          data-testid="main audio"
+          preload="none"
+          src="Guitar, Loneliness and Blue Planet.mp3"></audio>
         <div
           class="mb-8 sm:flex-row flex-col flex items-center gap-4 justify-center"
         >
-          <Image
+					<div class="flex flex-col sm:flex-row gap-4">
+						<Image
             loading="lazy"
             alt="Kessoku Band Album"
             width={128}
@@ -216,37 +224,60 @@ const support = [
             src="KessokuCover.webp"
             class="w-32"
           />
+          <div class="flex flex-row sm:flex-col gap-2">
+            <a
+              href="https://open.spotify.com/album/5ZGzGGNAB6U7QlKpdaMu0d?si=sAHuLOXfT_u7d-kTfb0vHg"
+            >
+              <img class="w-8" src="Spotify.svg" />
+            </a>
+            <a
+              href="https://music.youtube.com/playlist?list=OLAK5uy_le0yxWXsv9FFR34JFe6BdkMFTeVWYcUpo"
+            >
+              <img class="w-8" src="YoutubeMusic.svg" />
+            </a>
+            <a
+              href="https://music.apple.com/us/album/%E7%B5%90%E6%9D%9F%E3%83%90%E3%83%B3%E3%83%89/1657318546"
+            >
+              <img class="w-8" src="AppleMusic.svg" />
+            </a>
+          </div>
+					</div>
           <div class="flex gap-4 items-center">
-						<button data-testid="mainaudio" class="audioplay">
-							<Image
-								loading="lazy"
-								alt="Play"
-								width={48}
-								height={48}
-								src="Play.png"
-							/>
-						</button>
-            <h2 class="currentSong text-xl tracking-tighter font-semibold">
-              Guitar to Kodoku to Aoihoshi
-						</h2>
+            <button data-testid="mainaudio" class="audioplay">
+              <Image
+                loading="lazy"
+                alt="Play"
+                width={48}
+                height={48}
+                src="Play.png"
+              />
+            </button>
+            <div>
+              <h2
+                class="currentSong text-xl tracking-tighter font-semibold w-max max-w-[225px] sm:max-w-xs"
+              >
+                Guitar to Kodoku to Aoihoshi
+              </h2>
+              <p>Kessoku Band</p>
+            </div>
           </div>
         </div>
       </div>
-      <div>
+      <div class="w-max">
         {
           music.map((song) => (
             <div data-song-url={song[1]} data-song={song[0]} class="song flex">
-							<button data-testid={song[0]}>
-								<Image
-									loading="lazy"
-									alt="Play"
-									width={32}
-									height={24}
-									class="mr-2"
-									src="Play.png"
-								/>
-							</button>
-              <p class="h-8">{song[0]}</p>
+              <button data-testid={song[0]}>
+                <Image
+                  loading="lazy"
+                  alt="Play"
+                  width={32}
+                  height={24}
+                  class="mr-2"
+                  src="Play.png"
+                />
+              </button>
+              <p class="max-w-[260px] sm:max-w-xs h-8">{song[0]}</p>
             </div>
           ))
         }
@@ -258,6 +289,7 @@ const support = [
       class="min-h-screen flex flex-col justify-center items-center"
     >
       <h2 class="mb-8">See us live at Starry</h2>
+
       <Image
         loading="lazy"
         alt="Starry"
@@ -266,6 +298,26 @@ const support = [
         class="rounded-md mb-16"
         src="Starry.webp"
       />
+      <div class="grid grid-cols-2" >
+        <a href="https://www.youtube.com/watch?v=p010N38zFrA" target="_blank">
+          <video autoplay="" muted="" loop="" width={320} height={223}>
+            <source src="Perf1.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </a>
+        <a href="https://www.youtube.com/watch?v=5tc14WHUoMw" target="_blank">
+          <video autoplay="" muted="" loop="" width={320} height={223}>
+            <source src="Perf2.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </a>
+      </div>
+      <a class="mb-16" href="https://www.youtube.com/watch?v=fJh5UeiULZs" target="_blank">
+        <video autoplay="" muted="" loop="" width={320} height={223}>
+          <source src="Perf3.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </a>
       <h2 class="mb-8">Support Kessoku Band</h2>
       <div class="flex gap-8 justify-center">
         {
@@ -284,10 +336,35 @@ const support = [
         }
       </div>
     </section>
+
+    <footer class="p-4 mb-4">
+      All rights reserved to © 2022 CloverWorks Studios & Aniplex
+    </footer>
   </main>
 </Layout>
 
 <script>
+  const elements = document.querySelectorAll("#maincontent ~ *");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove("hide");
+          entry.target.classList.add("show");
+        } else {
+          entry.target.classList.remove("show");
+          entry.target.classList.add("hide");
+        }
+      });
+    },
+    {
+      threshold: 0.5,
+    }
+  );
+
+  elements.forEach((element) => observer.observe(element));
+
   const images: NodeListOf<HTMLImageElement> =
     document.querySelectorAll(".mem");
   const members = document.querySelectorAll(".membercard");
@@ -317,8 +394,13 @@ const support = [
         let name = member.querySelector("h2")!;
         if (name.textContent!.includes(img.getAttribute("data-name")!)) {
           member.classList.remove("hidden");
+          member.classList.add("animate-slideshow");
           member.classList.add("flex");
         } else {
+          member.classList.remove("flex");
+          member.classList.remove("opacity-100");
+          member.classList.remove("duration-1000");
+          member.classList.remove("transition-opacity");
           member.classList.add("hidden");
         }
       });
@@ -331,35 +413,51 @@ const support = [
   });
 
   if (media && audio) {
-		const play: HTMLImageElement | null = media.querySelector('img')
+    const play: HTMLImageElement | null = media.querySelector("img");
     media.addEventListener("click", () => {
       if (play) {
-				if (play.src.includes("Play.png")) {
-        audio.volume = 0.1;
-        audio.play();
-        play.src = "Pause.png";
-        play.alt = "Pause";
-				} else {
-					audio.pause();
-					play.src = "Play.png";
-					play.alt = "Play";
-				}
-			}
+        if (play.src.includes("Play.png")) {
+          audio.volume = 0.1;
+          audio.play();
+          play.src = "Pause.png";
+          play.alt = "Pause";
+        } else {
+          audio.pause();
+          play.src = "Play.png";
+          play.alt = "Play";
+        }
+      }
     });
     songs.forEach((song) => {
-			const button = song.querySelector('button')
+      const button = song.querySelector("button");
       if (button) {
-				button.addEventListener("click", () => {
-        const currentSong = document.querySelector(".currentSong")!;
-        currentSong.textContent = song.getAttribute("data-song");
-        audio.src = `${song.getAttribute("data-song-url")}.mp3`;
-        audio.pause();
-				if (play) {
-					play.src = "Play.png";
-					play.alt = "Pause";
-					}
-				});
-			}
+        button.addEventListener("click", () => {
+          const currentSong = document.querySelector(".currentSong")!;
+          currentSong.textContent = song.getAttribute("data-song");
+          audio.src = `${song.getAttribute("data-song-url")}.mp3`;
+          audio.pause();
+          if (play) {
+            play.src = "Play.png";
+            play.alt = "Pause";
+          }
+        });
+      }
     });
   }
 </script>
+
+<style>
+  .hide {
+    opacity: 0;
+    transition: all 1s;
+  }
+  .show {
+    opacity: 1;
+    transition: all 1s;
+  }
+  @media (prefers-reduced-motion) {
+    .hide {
+      transition: none;
+    }
+  }
+</style>
