@@ -1,0 +1,365 @@
+---
+import Image from "astro/components/Image.astro";
+import Layout from "../layouts/Layout.astro";
+
+const music = [
+  ["Seishun Complex", "seisyun complex"],
+  ["Hitoribocchi Tokyo", "hitoribocchi tokyo"],
+  ["Distortion!!", "Distortion!!"],
+  ["Himitsu Kichi", "Secret base"],
+  ["Guitar to Kodoku to Aoihoshi", "Guitar, Loneliness, and Blue Planet"],
+  ["Love Song ga Utaenai", "I can't sing a love song"],
+  ["Ano Band", "That band"],
+  ["Karakara", "Karakara"],
+  ["Chiisana Umi", "The Little Sea"],
+  ["Nani ga Warui", "What is wrong with"],
+  ["Wasurete Yaranai", "Never forget"],
+  ["Seiza ni Naretara", "If I could be a constellation"],
+  ["Flashbacker", "Flashbacker"],
+  [
+    "Korogaru Iwa, Kimi ni Asa ga Furu",
+    "Rockn' Roll, Morning Light Falls on You",
+  ],
+];
+
+const members = [
+  {
+    name: "Hitori Gotoh",
+    secondary: "Gotoh",
+    role: "Lead Guitarist, Lyricist",
+    seiyu: "Yoshino Aoyama",
+    description:
+      'An extremely timid and introverted first-year student in high school. She is in charge of the lead guitar of Kessoku Band. She dreams of playing in a band that might let even an introverted girl shine and starts playing the guitar. Although her skill is the real deal, she can\'t show it well in a band or public. She has a habit of saying "Ahh" before she says something.',
+    image: "Hitori.webp",
+    color: "ff00ff",
+  },
+  {
+    name: "Nijika Ijichi",
+    secondary: "Ijichi",
+    role: "Drummer, Organizer",
+    seiyu: "Sayumi Suzushiro",
+    description:
+      'An energetic and cheerful second-year high school student. She is the drummer of Kessoku Band. The organizer of her band who takes care of Hitori was already joined Kessoku Band. She has an older sister, Seika, who is the manager of the live house "STARRY" and has a special feeling for the live house.',
+    image: "Nijika.webp",
+    color: "ffff00",
+  },
+  {
+    name: "Ryou Yamada",
+    secondary: "Yamada",
+    role: "Bassist, Backing Vocalist",
+    seiyu: "Saku Mizuno",
+    description:
+      "A cool and solitary second-year high school student. She is the bassist of Kessoku Band and Nijika's best friend. Her hobbies are out of the ordinary, and she rejoices when called a weirdo. She lives with a wealthy family but never has any money because she spends it all on instruments. She occasionally eats weeds to get rid of her hunger.",
+    image:
+      "https://static.wikia.nocookie.net/bocchi-the-rock/images/4/4a/Ryo_Yamada_Character_Design_2.png",
+    color: "1D4ED8",
+  },
+  {
+    name: "Ikuyo Kita",
+    secondary: "Kita",
+    role: "Vocalist, Guitarist",
+    seiyu: "Ikumi Hasegawa",
+    description:
+      "A bright and popular first year of high school. She is in charge of the guitar and vocals of Kessoku Band. She is a cheerful character who likes to interact with people and can talk to her with a smile without hesitation, even when she meets her for the first time. She looks up to Ryo, and her feelings can go too far. She often takes photos and uploads to Isosta.",
+    image:
+      "https://static.wikia.nocookie.net/bocchi-the-rock/images/a/a8/Ikuyo_Kita_Character_Design_2.png",
+    color: "ff250e",
+  },
+];
+
+const support = [
+  {
+    url: "https://open.spotify.com/artist/2nvl0N9GwyX69RRBMEZ4OD",
+    img: "Spotify",
+    alt: "Spotify",
+  },
+  {
+    url: "https://music.apple.com/us/artist/kessoku-band/1646020674",
+    img: "AppleMusic",
+    alt: "Apple Music",
+  },
+  {
+    url: "https://music.youtube.com/channel/UC6IhDHJbJUoRJGUPnlh5GRQ",
+    img: "YoutubeMusic",
+    alt: "Youtube Music",
+  },
+  {
+    url: "https://music.amazon.com/artists/B0BFWXL2XZ/kessoku-band",
+    img: "AmazonMusic",
+    alt: "Amazon Music",
+  },
+];
+---
+
+<Layout title="Kessoku Band">
+  <main class="container flex justify-center items-center flex-col max-w-7xl">
+    <section class="min-h-screen flex flex-col justify-center items-center">
+      <Image
+        alt="Kessoku Band Logo"
+        width={315}
+        height={282}
+        class="p-4"
+        src="Band.webp"
+      />
+      <header class="mt-4">
+        <nav>
+          <ul class="flex">
+            <li><a href="#members" class="mr-4">Members</a></li>
+            <li><a href="#music" class="mr-4">Music</a></li>
+            <li><a href="#support">Support</a></li>
+          </ul>
+        </nav>
+      </header>
+      <div class="text-blue-700 flex-grow flex items-center justify-center">
+        <div class="flex-grow grid grid-cols-3 max-w-4xl mb-24 p-4">
+          <Image
+            width={576}
+            height={323}
+            alt="Kessoku Band Banner"
+            class="col-span-2"
+            src="Bands.webp"
+          />
+          <Image
+            width={288}
+            height={323}
+            alt="Kessoku Group Photo on Instruments"
+            class="object-cover aspect-square h-full"
+            src="Pic3.webp"
+          />
+          <Image
+            width={288}
+            height={162}
+            alt="Kessoku Promotional Photo"
+            class="object-cover w-auto h-auto"
+            src="Pic1.webp"
+          />
+          <Image
+            width={288}
+            height={162}
+            alt="Kessoku on Instruments"
+            class="object-cover w-full h-auto"
+            src="Pic4.webp"
+          />
+          <Image
+            width={288}
+            height={162}
+            alt="Kessoku Group Kita Selfie"
+            class="object-cover w-full h-auto"
+            src="Pic2.webp"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="members"
+      class="m-auto min-h-screen flex flex-col max-w-7xl w-full justify-center items-center"
+    >
+      <div class="flex w-full justify-center p-4">
+        {
+          members.map((member) => (
+            <div>
+              <Image
+                loading="lazy"
+                width={312}
+                height={386}
+                alt={member.secondary}
+                data-name={member.secondary}
+                class="mem hover:scale-105 hover:z-50"
+                src={`${member.secondary}.webp`}
+              />
+            </div>
+          ))
+        }
+      </div>
+      {
+        members.map((member) => (
+          <div class="flex-col sm:flex-row gap-0 sm:gap-16 membercard hidden items-center justify-center">
+            <Image
+              loading="lazy"
+              alt={member.name}
+              width={203}
+              height={498}
+              class="hidden sm:block"
+              src={member.image}
+            />
+            <div class="flex flex-col w-96 justify-between items-center mt-16 mb-16">
+              <div>
+                <h2 style={`color: #${member.color};`}>{member.name}</h2>
+                <p>Role: {member.role}</p>
+                <p>Seiyu: {member.seiyu}</p>
+              </div>
+              <p class="h-[240px] text-sm sm:h-auto sm:text-base mt-16 p-6">
+                {member.description}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </section>
+
+    <section
+      id="music"
+      class="min-h-screen flex flex-col justify-center items-center"
+    >
+      <div class="w-[36rem]">
+        <audio data-testid="main audio" preload="none" src="Guitar, Loneliness and Blue Planet.mp3"
+        ></audio>
+        <div
+          class="mb-8 sm:flex-row flex-col flex items-center gap-4 justify-center"
+        >
+          <Image
+            loading="lazy"
+            alt="Kessoku Band Album"
+            width={128}
+            height={114}
+            src="KessokuCover.webp"
+            class="w-32"
+          />
+          <div class="flex gap-4 items-center">
+						<button data-testid="mainaudio" class="audioplay">
+							<Image
+								loading="lazy"
+								alt="Play"
+								width={48}
+								height={48}
+								src="Play.png"
+							/>
+						</button>
+            <h2 class="currentSong text-xl tracking-tighter font-semibold">
+              Guitar to Kodoku to Aoihoshi
+						</h2>
+          </div>
+        </div>
+      </div>
+      <div>
+        {
+          music.map((song) => (
+            <div data-song-url={song[1]} data-song={song[0]} class="song flex">
+							<button data-testid={song[0]}>
+								<Image
+									loading="lazy"
+									alt="Play"
+									width={32}
+									height={24}
+									class="mr-2"
+									src="Play.png"
+								/>
+							</button>
+              <p class="h-8">{song[0]}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section
+      id="support"
+      class="min-h-screen flex flex-col justify-center items-center"
+    >
+      <h2 class="mb-8">See us live at Starry</h2>
+      <Image
+        loading="lazy"
+        alt="Starry"
+        width={320}
+        height={223}
+        class="rounded-md mb-16"
+        src="Starry.webp"
+      />
+      <h2 class="mb-8">Support Kessoku Band</h2>
+      <div class="flex gap-8 justify-center">
+        {
+          support.map((platform) => (
+            <a class="flex" href={platform.url}>
+              <Image
+                loading="lazy"
+                alt={platform.alt}
+                width={64}
+                height={64}
+                class="w-16"
+                src={`${platform.img}.svg`}
+              />
+            </a>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  const images: NodeListOf<HTMLImageElement> =
+    document.querySelectorAll(".mem");
+  const members = document.querySelectorAll(".membercard");
+  const songs = document.querySelectorAll(".song");
+  const media: HTMLButtonElement | null = document.querySelector(".audioplay");
+  const audio: HTMLAudioElement | null = document.querySelector("audio");
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const random = Math.floor(Math.random() * members.length);
+    members[random].classList.remove("hidden");
+    members[random].classList.add("flex");
+  });
+
+  images.forEach((img) => {
+    img.addEventListener("mouseover", () => {
+      const mesrc = img.src;
+      images.forEach((img) => {
+        img.classList.add("opacity-100");
+        if (img.src !== mesrc) {
+          img.classList.remove("opacity-100");
+          img.classList.add("opacity-50");
+        } else {
+          img.classList.remove("opacity-50");
+        }
+      });
+      members.forEach((member) => {
+        let name = member.querySelector("h2")!;
+        if (name.textContent!.includes(img.getAttribute("data-name")!)) {
+          member.classList.remove("hidden");
+          member.classList.add("flex");
+        } else {
+          member.classList.add("hidden");
+        }
+      });
+    });
+    img.addEventListener("mouseleave", () => {
+      images.forEach((img) => {
+        img.classList.add("opacity-100");
+      });
+    });
+  });
+
+  if (media && audio) {
+		const play: HTMLImageElement | null = media.querySelector('img')
+    media.addEventListener("click", () => {
+      if (play) {
+				if (play.src.includes("Play.png")) {
+        audio.volume = 0.1;
+        audio.play();
+        play.src = "Pause.png";
+        play.alt = "Pause";
+				} else {
+					audio.pause();
+					play.src = "Play.png";
+					play.alt = "Play";
+				}
+			}
+    });
+    songs.forEach((song) => {
+			const button = song.querySelector('button')
+      if (button) {
+				button.addEventListener("click", () => {
+        const currentSong = document.querySelector(".currentSong")!;
+        currentSong.textContent = song.getAttribute("data-song");
+        audio.src = `${song.getAttribute("data-song-url")}.mp3`;
+        audio.pause();
+				if (play) {
+					play.src = "Play.png";
+					play.alt = "Pause";
+					}
+				});
+			}
+    });
+  }
+</script>
